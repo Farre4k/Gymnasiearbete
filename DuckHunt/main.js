@@ -8,32 +8,28 @@
         points = document.getElementById('points'),
         duck = document.createElement('img'),
         score = 0,
-        timer = 100;
+        timer = 400;
 
 
-    function addAndPrintScore() {
-        score = score + 1;
-        points.innerHTML = score;
-        
-        if(score == 10){
-            alert('Grattis du vann!');
+    var clickedTime;
+    var createdTime;
+    var reactionTime;
+
+        function makeBox(){
+            var time = Math.random();
+            time = time*3000;
             
-            document.location.reload();
-            
-            
+            setTimeout(function(){
+                if (Math.random()>0.5){
+                    document.getElementById
+                }
+            })
         }
-    }
     
     
 
 
 
-    duck.src = 'duck.png'; 
-    duck.style.position = 'absolute'; 
-    duck.style.left = '0px'; 
-    duck.style.top = '0px'; 
-    duck.style.zIndex = 10000; 
-    duck.addEventListener('click', addAndPrintScore);
 
     function newDuck() {
         var newX = Math.floor(Math.random() * (areaWidth - duck.width)),
