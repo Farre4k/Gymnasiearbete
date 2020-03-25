@@ -1,54 +1,31 @@
-(function () {
-        'use strict';
-    
+function colors(){
+    var bokstav = "0123456789ABCDEF".split("");
+    var color = "#";
+    for (var i = 0; i < 6; i++){
+        color += letters[Math.round(Math.random() * 15)];
+    }
+    return color;
+}
 
-    var area = document.body,
-        areaHeight = window.innerHeight,
-        areaWidth = window.innerWidth,
-        points = document.getElementById('points'),
-        duck = document.createElement('img'),
-        score = 0,
-        timer = 400;
+var clickedTime;
+var createdTime;
+var reactionTime;
 
+function figurer(){
+    var time = Math.random();
+    time = time*3000;
 
-    var clickedTime;
-    var createdTime;
-    var reactionTime;
-
-        function makeBox(){
-            var time = Math.random();
-            time = time*3000;
-            
-            setTimeout(function(){
-                if (Math.random()>0.5){
-                    document.getElementById
-                }
-            })
+    setTimeout(function(){
+        if (Math.random()>0.5){
+            document.getElementById("box").style.borderRadius = "100px";
         }
-    
-    
+        else{
+            document.getElementById("box").style.borderRadius="0";
+        }
 
-
-
-
-    function newDuck() {
-        var newX = Math.floor(Math.random() * (areaWidth - duck.width)),
-            newY = Math.floor(Math.random() * (areaHeight - duck.height));
-
-        duck.style.left = newX + 'px';
-        duck.style.top = newY + 'px';
-        area.appendChild(duck);
-    }
-
-    
-    function startGame() {
-        window.setInterval(newDuck, timer);
-    }
-
-
-    startGame();
-
-    alert('Klicka på ankan och samla poäng');
-    
-    
-})();
+        var top = Math.random();
+            top = top*300;
+        var left = Math.random();
+            left = left*500;
+    })
+}
