@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <title>Refleks</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Verdana, Geneva, sans-serif;
+
+        }
+
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            display: none;
+            position: relative;
+        }
+    </style>
+
+</head>
+
+<body>
+        <h1>Testa din reaktionstid</h1>
+        <p>Klicka här för att se din reaktionstid: </p>
+        <p id="time"></p>
+        <div id="box"></div>
+
+    <script>
+        function colors() {
+            var letters = "0123456789ABCDEF".split('');
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.round(Math.random() * 15)];
+            }
+            return color;
+        }
+
+        var clickedTime;
+        var createdTime;
+        var reactionTime;
+
+        function figurer() {
+            var time = Math.random();
+                time = time * 3000;
+
+            setTimeout(function() {
+
+                if (Math.random() > 0.5) {
+
+                    document.getElementById("box").style.borderRadius = "100px";
+
+                } else {
+
+                    document.getElementById("box").style.borderRadius = "0";
+                }
+
+                var top = Math.random();
+                    top = top * 300;
+                var left = Math.random();
+                    left = left * 500;
+
+                document.getElementById("box").style.top = top + "px";
+                document.getElementById("box").style.left = left + "px";
+
+                document.getElementById("box").style.backgroundColor = colors();
+                document.getElementById("box").style.display = "block";
+
+                createdTime = Date.now();
+
+            }, time);
+        }
+
+        document.getElementById("box").onclick = function () {
+            clickedTime = Date.now();
+            reactionTime = (clickedTime - createdTime) / 1000;
+            document.getElementById("time").innerHTML = "Your Reaction Time is: " + reactionTime + "seconds";
+            this.style.display = "none";
+            figurer();
+        }
+
+        figurer();
+    </script>
+
+
+</body>
+
+</html>
